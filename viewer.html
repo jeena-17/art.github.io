@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Viewer</title>
+
+<style>
+
+body{
+    margin:0;
+    background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    flex-direction:column;
+}
+
+img{
+    max-width:90%;
+    max-height:80vh;
+}
+
+.download{
+    margin-top:20px;
+    padding:10px 20px;
+    background:white;
+    border:none;
+    cursor:pointer;
+    font-size:16px;
+}
+
+</style>
+</head>
+
+<body>
+
+<img id="fullImage">
+
+<a id="downloadBtn" download>
+<button class="download">Download Image</button>
+</a>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+const imgSrc = params.get("img");
+
+document.getElementById("fullImage").src = imgSrc;
+document.getElementById("downloadBtn").href = imgSrc;
+
+</script>
+
+</body>
+</html>
